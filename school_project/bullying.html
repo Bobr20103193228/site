@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe Teen — Кибербуллинг</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+    body { 
+        background: linear-gradient(270deg, #0f0f1a, #1a0033, #001a1a, #1a0000); 
+        background-size: 400% 400%;
+        animation: neonGradient 15s ease infinite;
+        color: #ffffff; 
+        min-height: 100vh; 
+        margin: 0;
+        padding-top: 70px; /* для фиксированного navbar */
+    }
+    
+    @keyframes neonGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    .navbar {
+        background: rgba(17, 17, 17, 0.9) !important;
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    .nav-link { color: #00ffff !important; text-shadow: 0 0 15px #00ffff; transition: all 0.3s; font-size: 1rem; padding: 10px 15px !important; }
+    .nav-link:hover { color: #ff00ff !important; text-shadow: 0 0 20px #ff00ff; transform: scale(1.1); }
+    .nav-link.active { color: #00ffea !important; text-shadow: 0 0 25px #00ffea; }
+    
+    h1, h2, h3 { color: #00ffea; text-shadow: 0 0 25px #00ffea; }
+    
+    p { color: #00ffea; text-shadow: 0 0 25px #00ffea; }
+    label { color: blueviolet; text-shadow: 0 0 25px blueviolet; }
+    
+    .btn-neon { 
+        background: transparent; 
+        border: 2px solid #ff00ff; 
+        color: #ff00ff; 
+        text-shadow: 0 0 15px #ff00ff; 
+        transition: all 0.4s; 
+        min-height: 50px; /* touch-friendly */
+        padding: 12px 24px;
+        font-size: 1.1rem;
+    }
+    .btn-neon:hover { 
+        background: #ff00ff; 
+        color: #0a0a0a; 
+        box-shadow: 0 0 35px #ff00ff; 
+        transform: scale(1.05); 
+    }
+    
+    .card { 
+        background: rgba(17, 17, 17, 0.75); 
+        border: 1px solid #00ffff; 
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.3); 
+        backdrop-filter: blur(8px);
+        transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); }
+    
+    .progress-bar { 
+        background: linear-gradient(to right, #ff00ff, #00ffea); 
+        box-shadow: 0 0 20px #ff00ff; 
+    }
+    
+    .glow { animation: glow 2s infinite alternate; }
+    @keyframes glow { 
+        from { text-shadow: 0 0 15px #00ffea; } 
+        to { text-shadow: 0 0 40px #00ffea; } 
+    }
+    
+    .form-check-input:checked { 
+        background-color: #00ffea; 
+        border-color: #00ffea; 
+        box-shadow: 0 0 20px #00ffea; 
+    }
+    
+    /* Мобильная адаптация */
+    @media (max-width: 768px) {
+        h1 { font-size: 2rem; }
+        h2, h3 { font-size: 1.5rem; }
+        p, .stat-item, .contact-item { font-size: 1.1rem; }
+        .btn-neon { font-size: 1.2rem; padding: 15px 30px; min-height: 60px; }
+        .nav-link { font-size: 1.1rem; padding: 15px !important; }
+        .card { box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); } /* меньше теней на слабых устройствах */
+        .glow { animation: none; text-shadow: 0 0 20px #00ffea; } /* отключить анимацию свечения для производительности */
+        body { animation: neonGradient 20s ease infinite; } /* медленнее градиент */
+    }
+    
+    @media (max-width: 480px) {
+        h1 { font-size: 1.8rem; }
+        .navbar-brand { font-size: 1.3rem; }
+        .big-number { font-size: 2rem; }
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand glow" href="index.html">🔒 CyberSafe Teen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Тест</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rules.html">Правила</a></li>
+                    <li class="nav-item"><a class="nav-link" href="stats.html">Статистика</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="bullying.html">Кибербуллинг</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="text-center glow mb-5">Кибербуллинг в соцсетях: как защитить себя и других</h1>
+        <p class="text-center lead mb-5">Кибербуллинг — это травля в интернете: оскорбления, угрозы, распространение сплетен или фейковых фото. Это больно и опасно, но ты не один — есть способы справиться!</p>
+
+        <div class="card p-4 mb-5">
+            <h2 class="text-center glow mb-4"><i class="bi bi-shield-fill me-3"></i>Как избежать кибербуллинга</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-dark text-white">Делай профиль приватным — не все должны видеть твои посты.</li>
+                <li class="list-group-item bg-dark text-white">Не добавляй незнакомцев в друзья.</li>
+                <li class="list-group-item bg-dark text-white">Думай перед публикацией — всё остаётся в интернете навсегда.</li>
+                <li class="list-group-item bg-dark text-white">Не выкладывай личные данные (адрес, школу, фото в форме).</li>
+                <li class="list-group-item bg-dark text-white">Используй сильные пароли и не делись ими.</li>
+            </ul>
+        </div>
+
+        <div class="card p-4 mb-5">
+            <h2 class="text-center glow mb-4"><i class="bi bi-heart-fill me-3"></i>Если ты стал жертвой: как относиться и что делать</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-dark text-white">Не отвечай обидчику — это то, чего он хочет.</li>
+                <li class="list-group-item bg-dark text-white">Сохрани доказательства (скриншоты сообщений и постов).</li>
+                <li class="list-group-item bg-dark text-white">Заблокируй обидчика и пожалуйся в соцсети (кнопка «Пожаловаться»).</li>
+                <li class="list-group-item bg-dark text-white">Расскажи взрослым, которым доверяешь (родителям, учителю).</li>
+                <li class="list-group-item bg-dark text-white">Помни: это НЕ твоя вина. Ты имеешь право на уважение.</li>
+                <li class="list-group-item bg-dark text-white">Если тяжело — обратись за помощью (номера ниже).</li>
+            </ul>
+        </div>
+
+        <div class="card p-4 mb-5">
+            <h2 class="text-center glow mb-4"><i class="bi bi-hand-thumbs-up-fill me-3"></i>Если ты стал свидетелем травли</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-dark text-white">Не игнорируй — молчание помогает обидчику.</li>
+                <li class="list-group-item bg-dark text-white">Поддержи жертву: напиши в личку, что ты на его стороне.</li>
+                <li class="list-group-item bg-dark text-white">Не репости и не лайкай травлю — это делает её хуже.</li>
+                <li class="list-group-item bg-dark text-white">Пожалейся на посты/сообщения в соцсети.</li>
+                <li class="list-group-item bg-dark text-white">Расскажи взрослым (учителю, родителям) — они помогут остановить.</li>
+            </ul>
+        </div>
+
+        <div class="card p-4 mb-5">
+            <h2 class="text-center glow mb-4"><i class="bi bi-telephone-fill me-3"></i>Куда обратиться за помощью в России (2026)</h2>
+            <div class="contact-item text-center">
+                <p><i class="bi bi-telephone-forward-fill fs-1 text-success mb-3"></i><br>
+                <strong>Единый детский телефон доверия</strong><br>
+                8-800-2000-122 (бесплатно, анонимно, круглосуточно)<br>
+                Короткий номер: 124<br>
+                Психологи помогут с любой проблемой, включая травлю.</p>
+            </div>
+            <div class="contact-item text-center">
+                <p><i class="bi bi-globe fs-1 text-info mb-3"></i><br>
+                <strong>Линия помощи «Дети онлайн»</strong><br>
+                8-800-25-000-15 (бесплатно)<br>
+                Специально по интернет-проблемам: травля, мошенники, опасный контент.</p>
+            </div>
+            <p class="text-center mt-4">Звони в любое время — тебя выслушают и подскажут, что делать!</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
